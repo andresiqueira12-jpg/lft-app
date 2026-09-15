@@ -1,0 +1,386 @@
+/* ===================================================================
+   LFT — Lutando Fora do Tatame
+   Paleta: azul-marinho profundo + vermelho de faixa preta + branco.
+   =================================================================== */
+
+:root{
+  --navy-950:#0a1230;
+  --navy-900:#0d1a44;
+  --navy-800:#132458;
+  --navy-700:#1c3170;
+  --field-bg:#eef1f6;
+  --field-text:#16203f;
+  --white:#f6f7fb;
+  --muted:#9fabd1;
+  --red:#d81f2c;
+  --red-dark:#8f1420;
+  --green:#2e9e52;
+  --green-dark:#227a3f;
+  --gold:#e8b13b;
+  --radius-lg:22px;
+  --radius-md:14px;
+  --radius-sm:9px;
+  --font-display:"Avenir Next","Segoe UI Semibold",system-ui,-apple-system,sans-serif;
+  --font-body:system-ui,-apple-system,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+}
+
+*{box-sizing:border-box;}
+html,body{margin:0;padding:0;}
+body{
+  background:var(--navy-950);
+  font-family:var(--font-body);
+  color:var(--white);
+  min-height:100vh;
+  -webkit-tap-highlight-color:transparent;
+}
+
+/* Phone shell: edge-to-edge on real mobile, framed preview on wide screens */
+#phone{
+  min-height:100vh;
+  width:100%;
+  margin:0 auto;
+  background:linear-gradient(180deg,var(--navy-900) 0%,var(--navy-950) 60%);
+  position:relative;
+  overflow-x:hidden;
+}
+@media(min-width:560px){
+  body{display:flex;justify-content:center;padding:28px 12px;}
+  #phone{
+    max-width:400px;
+    min-height:min(860px,92vh);
+    border-radius:34px;
+    box-shadow:0 30px 60px rgba(0,0,0,.5), 0 0 0 8px #05070f;
+    overflow:hidden;
+  }
+}
+
+#app{
+  min-height:100vh;
+  display:flex;
+  flex-direction:column;
+  padding:18px 18px 28px;
+}
+@media(min-width:560px){ #app{min-height:min(860px,92vh);} }
+
+/* ---------- Header / brand ---------- */
+.brand{
+  text-align:center;
+  margin-bottom:4px;
+}
+.brand h1{
+  font-family:var(--font-display);
+  color:var(--red);
+  font-size:26px;
+  letter-spacing:.5px;
+  margin:0;
+  font-weight:800;
+}
+.brand p{
+  margin:0 0 6px;
+  color:var(--muted);
+  font-size:11.5px;
+  letter-spacing:.3px;
+}
+
+.screen-title{
+  font-size:19px;
+  font-weight:700;
+  text-align:center;
+  margin:6px 0 16px;
+  line-height:1.3;
+}
+.screen-title small{
+  display:block;
+  font-size:12.5px;
+  color:var(--muted);
+  font-weight:500;
+  margin-top:2px;
+}
+
+/* ---------- Belt progress header ---------- */
+.belt-header{ margin-bottom:10px; }
+.belt-bar{
+  display:flex;
+  align-items:center;
+  gap:6px;
+}
+.belt-seg{
+  flex:1;
+  height:20px;
+  border-radius:5px;
+  position:relative;
+  display:flex;
+  align-items:center;
+  justify-content:flex-end;
+  overflow:hidden;
+  border:1px solid rgba(0,0,0,.35);
+}
+.belt-seg .tip{
+  width:26%;
+  height:100%;
+  background:#111;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  gap:2px;
+}
+.belt-seg .tip i{
+  width:2px;height:60%;background:#f6f7fb;display:block;border-radius:1px;
+}
+.belt-arrow{ color:var(--gold); font-size:15px; flex:0 0 auto; }
+.belt-caption{
+  text-align:center;
+  font-size:10.5px;
+  font-weight:800;
+  letter-spacing:.6px;
+  color:var(--white);
+  background:var(--red-dark);
+  border-radius:6px;
+  padding:3px 8px;
+  display:inline-block;
+  margin:6px auto 0;
+}
+.belt-caption-wrap{text-align:center;}
+
+/* ---------- Form fields ---------- */
+.field{ margin-bottom:14px; }
+.field label{
+  display:block;
+  font-size:14.5px;
+  font-weight:700;
+  margin-bottom:6px;
+  color:var(--white);
+}
+.field input,
+.field select,
+.field textarea{
+  width:100%;
+  background:var(--field-bg);
+  color:var(--field-text);
+  border:none;
+  border-radius:var(--radius-sm);
+  padding:11px 12px;
+  font-size:15px;
+  font-family:var(--font-body);
+}
+.field input::placeholder{ color:#7b849e; }
+.field-row{ display:flex; gap:10px; }
+.field-row .field{ flex:1; }
+.hint{ font-size:11.5px; color:var(--muted); margin-top:4px; }
+
+/* ---------- Buttons ---------- */
+.btn{
+  display:block;
+  width:100%;
+  text-align:center;
+  padding:13px 16px;
+  border-radius:var(--radius-md);
+  border:none;
+  font-size:15.5px;
+  font-weight:700;
+  font-family:var(--font-body);
+  cursor:pointer;
+  margin-bottom:11px;
+  transition:transform .08s ease, filter .15s ease;
+}
+.btn:active{ transform:scale(.97); }
+.btn-light{ background:var(--field-bg); color:var(--red); }
+.btn-light:disabled{ color:#b5bcd6; background:#dfe3ea; }
+.btn-outline{ background:transparent; color:var(--white); border:1.5px solid var(--muted); }
+.btn-red{ background:var(--red); color:var(--white); }
+.btn-red-dark{ background:var(--red-dark); color:var(--white); }
+.btn-green{ background:var(--green); color:var(--white); }
+.btn-ghost{ background:transparent; color:var(--muted); font-weight:600; text-decoration:underline; padding:8px; margin-bottom:4px; }
+.btn-sm{ padding:9px 12px; font-size:13.5px; }
+.btn-pill.active{ background:#555b6e; color:var(--white); }
+
+.btn-group{ margin-top:auto; padding-top:14px; }
+.spacer{ flex:1; }
+
+/* Row of two buttons side by side */
+.btn-duo{ display:flex; gap:10px; }
+.btn-duo .btn{ flex:1; }
+
+/* ---------- Menu list ---------- */
+.menu-list .btn{ font-size:16px; padding:15px; }
+
+/* ---------- Info badge ---------- */
+.list-item{
+  background:var(--field-bg);
+  color:var(--field-text);
+  border-radius:var(--radius-sm);
+  padding:12px 14px;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:10px;
+  margin-bottom:9px;
+  font-weight:700;
+  font-size:14.5px;
+}
+.list-item.selected{ background:var(--red-dark); color:var(--white); }
+.list-item.done{ background:#3a4160; color:var(--muted); }
+.info-dot{
+  width:22px;height:22px;border-radius:50%;
+  background:var(--red);
+  color:var(--white);
+  border:none;
+  font-size:12px;font-weight:800;
+  flex:0 0 auto;
+  display:flex;align-items:center;justify-content:center;
+  cursor:pointer;
+}
+
+/* ---------- Chips (músculos) ---------- */
+.chips{ display:flex; flex-wrap:wrap; gap:6px; margin:6px 0 12px; }
+.chip{
+  background:var(--navy-700);
+  color:var(--white);
+  border-radius:20px;
+  padding:6px 10px 6px 12px;
+  font-size:12.5px;
+  display:flex;align-items:center;gap:6px;
+}
+.chip button{
+  background:none;border:none;color:var(--muted);font-size:14px;cursor:pointer;line-height:1;
+  padding:0;
+}
+.autocomplete{ position:relative; }
+.suggest-list{
+  position:absolute; z-index:20; left:0; right:0; top:100%;
+  background:var(--field-bg); border-radius:0 0 var(--radius-sm) var(--radius-sm);
+  max-height:180px; overflow-y:auto; box-shadow:0 8px 18px rgba(0,0,0,.35);
+}
+.suggest-item{ padding:10px 12px; color:var(--field-text); font-size:14px; cursor:pointer; border-top:1px solid #dde1ea; }
+.suggest-item:first-child{ border-top:none; }
+.suggest-item:active{ background:#dfe3ea; }
+
+/* ---------- Modal (info) ---------- */
+.modal-overlay{
+  position:fixed; inset:0; background:rgba(6,9,22,.72);
+  display:flex; align-items:center; justify-content:center; z-index:50; padding:24px;
+}
+.modal-box{
+  background:var(--navy-800); border-radius:var(--radius-md);
+  padding:18px; max-width:340px; width:100%;
+  border:1px solid var(--navy-700);
+}
+.modal-box h3{ margin:0 0 8px; color:var(--red); font-size:16px; }
+.modal-box p{ margin:0 0 14px; font-size:14px; line-height:1.5; color:var(--white); }
+.modal-box .btn{ margin-bottom:0; }
+
+/* ---------- Novo Treino: seleção de habilidade ---------- */
+.skill-btn{
+  position:relative;
+}
+.skill-row{ display:flex; align-items:stretch; gap:8px; margin-bottom:9px; }
+.skill-row .btn{ margin-bottom:0; flex:1; text-align:left; padding-right:40px; }
+.skill-row .info-dot{ position:relative; }
+
+/* ---------- Execução do exercício ---------- */
+.exec-skill-badge{
+  background:#555b6e; color:var(--white); text-align:center;
+  font-weight:800; padding:10px; border-radius:var(--radius-sm) var(--radius-sm) 0 0;
+  font-size:14.5px;
+}
+.exec-exercise-badge{
+  background:var(--field-bg); color:var(--field-text); text-align:center;
+  font-weight:800; padding:12px; border-radius:0 0 var(--radius-sm) var(--radius-sm);
+  margin-bottom:16px; display:flex; align-items:center; justify-content:center; gap:8px;
+}
+.stat-row{ display:flex; gap:8px; margin-bottom:8px; }
+.stat-box{
+  flex:1; background:var(--field-bg); color:var(--red); border-radius:var(--radius-sm);
+  text-align:center; padding:9px 4px; font-weight:800; font-size:19px;
+}
+.stat-box span{ display:block; font-size:10px; color:#5b6478; font-weight:700; margin-top:2px; letter-spacing:.3px; }
+.stat-box input{
+  width:100%; border:none; background:transparent; text-align:center; color:var(--red);
+  font-weight:800; font-size:19px; font-family:var(--font-body);
+}
+.carga-row{ display:flex; gap:8px; margin-bottom:20px; }
+.carga-label{
+  flex:1; background:var(--field-bg); color:var(--red); border-radius:var(--radius-sm);
+  padding:9px; font-weight:800; text-align:center; font-size:13.5px;
+}
+.carga-input{ flex:1; }
+.carga-input input{
+  width:100%; height:100%; border-radius:var(--radius-sm); border:none;
+  background:#f4d9bd; text-align:center; font-weight:800; color:#5a3a12; font-size:15px;
+}
+
+.big-dial-wrap{ display:flex; justify-content:center; margin:14px 0 22px; }
+.big-dial{
+  width:150px;height:150px;border-radius:50%;
+  background:var(--red);
+  color:var(--white);
+  border:none;
+  display:flex; flex-direction:column; align-items:center; justify-content:center;
+  font-weight:800; font-size:19px; text-align:center; line-height:1.15;
+  cursor:pointer;
+  box-shadow:0 10px 24px rgba(216,31,44,.35);
+}
+.big-dial.resting{ background:var(--green); box-shadow:0 10px 24px rgba(46,158,82,.35); }
+.big-dial small{ font-size:12px; font-weight:600; opacity:.85; margin-top:2px; }
+.big-dial .num{ font-size:40px; line-height:1; }
+
+/* ---------- Calendário ---------- */
+.calendar-card{
+  background:#05070f; border-radius:var(--radius-md); padding:12px; margin-bottom:14px;
+  border:1px solid #1b2545;
+}
+.calendar-title{ text-align:center; font-size:11px; letter-spacing:2px; color:var(--muted); font-weight:700; }
+.calendar-nav{ display:flex; align-items:center; justify-content:space-between; margin-bottom:2px; }
+.calendar-nav button{ background:none;border:none;color:var(--red);font-size:20px;font-weight:900;padding:4px 10px;cursor:pointer; }
+.calendar-month{ text-align:center; font-weight:800; font-size:14px; margin-bottom:8px; }
+.cal-grid{ display:grid; grid-template-columns:repeat(7,1fr); gap:4px; text-align:center; }
+.cal-dow{ font-size:10.5px; color:var(--muted); font-weight:700; padding-bottom:4px; }
+.cal-day{
+  aspect-ratio:1/1; display:flex; align-items:center; justify-content:center;
+  font-size:12.5px; color:#5b6690; border-radius:50%;
+}
+.cal-day.in-range{ color:var(--white); }
+.cal-day.today{ box-shadow:inset 0 0 0 1.5px var(--white); border-radius:50%; }
+.cal-day.trained{ font-weight:800; color:#fff; }
+
+/* ---------- Body heatmap ---------- */
+.body-map-wrap{ display:flex; justify-content:center; gap:10px; margin:8px 0 12px; }
+.body-map-wrap svg{ width:100%; max-width:230px; }
+
+.scale-legend{ display:flex; gap:3px; justify-content:center; margin-bottom:14px; }
+.scale-legend div{ width:16px; height:10px; border-radius:2px; }
+
+/* ---------- Diário / lista de treinos ---------- */
+.log-day{ margin-bottom:14px; }
+.log-day h4{ margin:0 0 4px; font-size:14.5px; }
+.log-day ul{ margin:0; padding-left:18px; }
+.log-day li{ font-size:13px; color:var(--muted); margin-bottom:2px; }
+.log-day li b{ color:var(--white); }
+.empty-note{ text-align:center; color:var(--muted); font-size:13.5px; padding:20px 6px; }
+
+/* ---------- Skill day pills (mensal) ---------- */
+.skill-pill{
+  display:flex; align-items:center; gap:12px; background:var(--field-bg);
+  border-radius:24px; padding:6px; margin-bottom:8px;
+}
+.skill-pill .count{
+  width:40px;height:40px;border-radius:50%; background:#6b3fa0; color:#fff;
+  display:flex; flex-direction:column; align-items:center; justify-content:center;
+  font-weight:800; font-size:14px; line-height:1;
+}
+.skill-pill .count small{ font-size:7px; font-weight:700; letter-spacing:.3px; }
+.skill-pill .name{ color:var(--red); font-weight:800; font-size:14.5px; }
+
+/* ---------- Utility ---------- */
+.mt-auto{ margin-top:auto; }
+.center{ text-align:center; }
+.row-gap{ display:flex; gap:8px; }
+.row-gap > *{ flex:1; }
+a.link{ color:var(--muted); text-decoration:underline; font-size:13px; }
+.hidden{ display:none !important; }
+
+::-webkit-scrollbar{ width:0; height:0; }
+
+@media (prefers-reduced-motion: reduce){
+  *{ transition:none !important; animation:none !important; }
+}

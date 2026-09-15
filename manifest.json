@@ -1,0 +1,16 @@
+{
+  "name": "LFT - Lutando Fora do Tatame",
+  "short_name": "LFT",
+  "description": "App de treino físico para praticantes de jiu-jitsu: monta treinos de musculação ou calistenia, propõe exercícios com base no que você menos treinou e acompanha seu progresso e faixa.",
+  "start_url": "./index.html",
+  "scope": "./",
+  "display": "standalone",
+  "orientation": "portrait",
+  "background_color": "#0a1230",
+  "theme_color": "#0d1a44",
+  "lang": "pt-BR",
+  "icons": [
+    { "src": "icons/icon-192.png", "sizes": "192x192", "type": "image/png", "purpose": "any maskable" },
+    { "src": "icons/icon-512.png", "sizes": "512x512", "type": "image/png", "purpose": "any maskable" }
+  ]
+}
